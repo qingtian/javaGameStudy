@@ -2,6 +2,7 @@ package com.github.qingtian.gamestudy;
 
 import java.awt.DisplayMode;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
@@ -47,9 +48,11 @@ public class AnimationTestOfPageFlipping extends JFrame {
 			long elapsedTime = nowTime - currTime;// 经过时间
 			currTime += elapsedTime;
 			animation.update(elapsedTime);
-			Graphics g = screenManager.getFullScreenWindow().getGraphics();
+			// 双缓存
+			Graphics2D g = screenManager.getGraphics();
 			draw(g);
 			g.dispose();
+			screenManager.update();
 			try {
 				Thread.sleep(20);
 			} catch (InterruptedException e) {
