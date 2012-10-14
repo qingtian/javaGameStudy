@@ -10,6 +10,7 @@ import java.awt.Window;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
 
 import javax.swing.JFrame;
 
@@ -35,10 +36,12 @@ public class ScreenManagerOfPageFlipping {
 		for (int i = 0; i < modes.length; i++) {
 			for (int j = 0; j < goodModes.length; j++) {
 				if (displayModesMatch(modes[i], goodModes[j])) {
+					System.out.println("Support displayMode : " + modes[i]);
 					return modes[i];
 				}
 			}
 		}
+		System.out.println("NO support displayMode");
 		return null;
 	}
 
@@ -93,6 +96,10 @@ public class ScreenManagerOfPageFlipping {
 
 		}
 
+	}
+
+	public void setFullScreen(DisplayMode displayMode) {
+		this.setFullScreen(displayMode, new JFrame());
 	}
 
 	public Graphics2D getGraphics() {
