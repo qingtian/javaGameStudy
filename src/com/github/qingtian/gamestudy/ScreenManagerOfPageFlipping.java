@@ -36,12 +36,10 @@ public class ScreenManagerOfPageFlipping {
 		for (int i = 0; i < modes.length; i++) {
 			for (int j = 0; j < goodModes.length; j++) {
 				if (displayModesMatch(modes[i], goodModes[j])) {
-					System.out.println("Support displayMode : " + modes[i]);
 					return modes[i];
 				}
 			}
 		}
-		System.out.println("NO support displayMode");
 		return null;
 	}
 
