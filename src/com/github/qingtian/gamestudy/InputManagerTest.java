@@ -76,7 +76,7 @@ public class InputManagerTest extends CoreSupport {
 		player.setFloorY(screen.getHeight() - player.getHeight());
 	}
 
-	private void checkSystemInput() {
+	protected void checkSystemInput() {
 		if (pause.isPressed()) {
 			setPaused(!isPaused());
 		}
